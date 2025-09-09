@@ -1,10 +1,15 @@
 import React from "react";
 
+
 const Login = () => {
   return (
-    <div>
+    <div className="auth-container">
       <h2>Login</h2>
-      {/* Login form will go here */}
+      <form className="auth-form">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };

@@ -11,6 +11,10 @@ const Register = () => {
         <input type="password" placeholder="Password" required />
         <button type="submit">Register</button>
       </form>
+      <div className="social-login">
+        <button className="google-btn" type="button">Register with Google</button>
+        <button className="facebook-btn" type="button">Register with Facebook</button>
+      </div>
     </div>
   );
 };

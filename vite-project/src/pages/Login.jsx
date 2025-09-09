@@ -10,6 +10,10 @@ const Login = () => {
         <input type="password" placeholder="Password" required />
         <button type="submit">Login</button>
       </form>
+      <div className="social-login">
+        <button className="google-btn" type="button">Login with Google</button>
+        <button className="facebook-btn" type="button">Login with Facebook</button>
+      </div>
     </div>
   );
 };

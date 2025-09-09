@@ -1,26 +1,69 @@
 
+
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Customers from './pages/Customers';
+
+// Wrapper for Login to handle authentication
+function LoginWithAuth({ onLogin }) {
+	return <Login onLogin={onLogin} />;
+}
 
 function App() {
+	const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+	// Simulate login for demo purposes
+	const handleLogin = () => setIsAuthenticated(true);
+	const handleLogout = () => setIsAuthenticated(false);
+
 	return (
 		<Router>
 			<nav className="nav-bar">
-				<Link to="/customers">Customers</Link>
-				<Link to="/register">Register</Link>
-				<Link to="/login">Login</Link>
+				{!isAuthenticated && <Link to="/register">Register</Link>}
+				{!isAuthenticated && <Link to="/login">Login</Link>}
+				{isAuthenticated && <Link to="/customers">Customers</Link>}
+				{isAuthenticated && <button onClick={handleLogout} style={{marginLeft: '1rem'}}>Logout</button>}
 			</nav>
 			<Routes>
-				<Route path="/customers" element={<Customers />} />
-				<Route path="/register" element={<Register />} />
-				<Route path="/login" element={<Login />} />
+				{!isAuthenticated && <Route path="/register" element={<Register />} />}
+				{!isAuthenticated && <Route path="/login" element={<LoginWithAuth onLogin={handleLogin} />} />}
+				{isAuthenticated && <Route path="/customers" element={<Customers />} />}
 			</Routes>
 		</Router>
 	);
+}
+
+
+
+function App() {
+	const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+	// Simulate login for demo purposes
+	const handleLogin = () => setIsAuthenticated(true);
+	const handleLogout = () => setIsAuthenticated(false);
+
+	return (
+		<Router>
+			<nav className="nav-bar">
+				{!isAuthenticated && <Link to="/register">Register</Link>}
+				{!isAuthenticated && <Link to="/login">Login</Link>}
+				{isAuthenticated && <Link to="/customers">Customers</Link>}
+				{isAuthenticated && <button onClick={handleLogout} style={{marginLeft: '1rem'}}>Logout</button>}
+			</nav>
+			<Routes>
+				{!isAuthenticated && <Route path="/register" element={<Register />} />}
+				{!isAuthenticated && <Route path="/login" element={<LoginWithAuth onLogin={handleLogin} />} />}
+				{isAuthenticated && <Route path="/customers" element={<Customers />} />}
+			</Routes>
+		</Router>
+	);
+}
+
+// Wrapper for Login to handle authentication
+function LoginWithAuth({ onLogin }) {
+	return <Login onLogin={onLogin} />;
 }
 
 export default App;

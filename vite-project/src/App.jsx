@@ -2,7 +2,9 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-import Customers from './pages/Customers';
+
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
 	return (

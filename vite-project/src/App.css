@@ -1,3 +1,39 @@
+.social-login {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.google-btn {
+	background: #db4437;
+	color: #fff;
+	border: none;
+	padding: 0.75rem;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+	font-weight: 500;
+	transition: background 0.2s;
+}
+.google-btn:hover {
+	background: #b33c2a;
+}
+
+.facebook-btn {
+	background: #4267B2;
+	color: #fff;
+	border: none;
+	padding: 0.75rem;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+	font-weight: 500;
+	transition: background 0.2s;
+}
+.facebook-btn:hover {
+	background: #314d86;
+}
 
 .nav-bar {
 	display: flex;
